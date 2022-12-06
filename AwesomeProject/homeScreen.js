@@ -4,7 +4,7 @@ import axios from "axios"
 import Cards from "./components/cards"
 
 
-function HomeScreen () { 
+function HomeScreen ({navigation}) { 
 
 const [data,setData] = React.useState([])
 const [categories,setCategories] = React.useState([])
@@ -105,7 +105,7 @@ useEffect (()=>{
 
                     {searchItem&&searchItem.length>0?searchItem.map((e,i)=>{
                         return (
-                            <Cards key={i} data={e} />
+                            <Cards navigation={navigation} key={i} data={e} />
                         )
                     })
                     
@@ -115,7 +115,7 @@ useEffect (()=>{
                     data && data.length>0 && data.map((e,i)=>{
                             
                             return (
-                                <Cards key={i} data={e} />
+                                <Cards navigation={navigation} key={i} data={e} />
                                 
                             )
                     
