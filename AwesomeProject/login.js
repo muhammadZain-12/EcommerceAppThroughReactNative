@@ -16,7 +16,7 @@ function Login2 ({ navigation }) {
     const getLoginData = () => {
         LoginUser(data).then((success)=>{
             console.log(success,"success")
-            navigation.navigate('Todo')
+            navigation.navigate('HomeScreen')
         }).catch((reject)=>{
             console.log(reject)
         })
@@ -36,7 +36,7 @@ function Login2 ({ navigation }) {
             </View>
             <View style={{padding:0,alignItems:"center"}} >
                 <TextInput onChangeText={(e)=>setData({...data,email:e})} style={styles.textInput} placeholder="Email" placeholderTextColor={'black'} />
-                <TextInput onChangeText={(e)=>setData({...data,password:e})} style={styles.textInput}  placeholder="Password"  placeholderTextColor={'black'} />
+                <TextInput secureTextEntry={true} onChangeText={(e)=>setData({...data,password:e})} style={styles.textInput}  placeholder="Password"  placeholderTextColor={'black'} />
                 <Text style={{fontSize:14,color:"black",marginVertical:10,textAlign:"right",width:"90%",color:"blue"}} >Forgot Password?</Text>
                 <TouchableOpacity onPress={getLoginData}  style={styles.TouchableOpacity} >
                 <Text style={styles.text}>Login</Text>
